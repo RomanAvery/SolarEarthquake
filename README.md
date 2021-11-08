@@ -1,1 +1,1 @@
-# SolarEarthquake
+# SolarEarthquakeGetting Started:- Install Git: `https://git-scm.com/downloads`- Install Github: `https://cli.github.com/`- Install Git Large Files: `https://git-lfs.github.com/`- Clone repository: `gh repo clone RomanAvery/SolarEarthquake`To get updates: `git pull`To save changes:- `git add <filename (or . for everthing)>`- `git commit -m "<message>"`- `git push`
