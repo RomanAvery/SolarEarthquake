@@ -9,8 +9,9 @@ Created on Wed Nov  3 14:40:42 2021
 
 import pandas as pd
 import numpy as np
-from load_omni2_info import omni2_info
 from datetime import datetime
+
+omni2_info = pd.read_table('data/omni2_info.tsv')
 
 columns = {
     "Yr": 1,  # 1, Year
@@ -22,7 +23,7 @@ columns = {
     "#IMF": 7,  # 7, # of points in the IMF averages
     "#PA": 8,  # 8, # of points in the plasma averages
     "FMA": 9,  # 9, Field Magnitude Average |B|
-    "magAFV": 10,  # 10, Magnitude of Average Field Vector
+    "magAFV": 10,  # 10, Magnitude of Average Field Vector --
     "latAFV": 11,  # 11, Lat.Angle of Aver. Field Vector
     "longAFV": 12,  # 12, Long.Angle of Aver. Field Vector
     "BxGSE": 13,  # 13, Bx GSE, GSM
@@ -31,13 +32,13 @@ columns = {
     "ByGSM": 16,  # 16, By GSM
     "BzGSM": 17,  # 17, Bz GSM
     "sMagB": 18,  # 18, sigma |B|
-    "sB": 19,  # 19, sigma B
+    "sB": 19,  # 19, sigma B  --
     "sBx": 20,  # 20, sigma Bx
     "sBy": 21,  # 21, sigma By"
     "sBz": 22,  # 22, sigma Bz
-    "PT": 23,  # 23, Proton temperature
-    "PD": 24,   # 24, Proton density
-    "PFS": 25,  # 25, Plasma (Flow) speed
+    "PT": 23,  # 23, Proton temperature  --
+    "PD": 24,   # 24, Proton density  --
+    "PFS": 25,  # 25, Plasma (Flow) speed  --
     "longPFA": 26,  # 26, Plasma Flow Long. Angle
     "latPFA": 27,  # 27, Plasma Flow Lat. Angle
     "NaNp": 28,  # 28, Na/Np
@@ -47,15 +48,15 @@ columns = {
     "sPV": 32,  # 32, sigma phi V
     "sTV": 33,  # 33, sigma theta V
     "sNaNp": 34,  # 34, sigma-Na/Np
-    "FP": 35,  # 35, Flow Pressure
-    "EF": 36,  # 36, Electric field
+    "FP": 35,  # 35, Flow Pressure  --
+    "EF": 36,  # 36, Electric field  --
     "PB": 37,  # 37, Plasma beta
     "AMN": 38,  # 38, Alfven mach number
     "MMN": 39,  # 39, Magnetosonic mach number
     "QI": 40,  # 40, Proton Quasy-Invariant
-    "Kp": 41,   # 41, Planetary geomagnetic activity index (Kp)
+    "Kp": 41,   # 41, Planetary geomagnetic activity index (Kp)  --
     "R": 42,   # 42, Sunspot number (R)
-    "DST": 43,  # 43, DST Index
+    "DST": 43,  # 43, DST Index  --
     "ap": 44,  # 44, ap-index
     "f10.7": 45,  # 45, f10.7_index
     "AE": 46,  # 46, AE-index
