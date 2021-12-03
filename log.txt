@@ -1,0 +1,5 @@
+--3rd December (03/12) --
+
+Created merged data set containing the variables
+[BxGSE, ByGSE, BzGSE, NaNp, PB, AMN, MMN, LyAlp, F]
+Created kdeplots and heatmaps for variable means, maxes, deltas and sds
