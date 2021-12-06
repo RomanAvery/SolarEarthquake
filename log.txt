@@ -3,3 +3,11 @@
 Created merged data set containing the variables
 [BxGSE, ByGSE, BzGSE, NaNp, PB, AMN, MMN, LyAlp, F]
 Created kdeplots and heatmaps for variable means, maxes, deltas and sds
+UPDATE: Created latex file
+
+--7th December (07/12) --
+
+Created merged data set containing the variables
+[R, ap, f10.7, AE, AU, PCN, PF2, PF10, PF30]
+Created kdeplots and heatmaps for variable means, maxes, deltas and sds
+Created latex file

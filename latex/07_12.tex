@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[export]{adjustbox}
+\usepackage{geometry}
+
+\begin{huge}
+\title{Magnitude vs. SW Variables}
+
+\date{07/12/21}
+\end{huge}
+\setlength{\topmargin}{-1in}
+
+\begin{document}
+\maketitle
+\begin{large}
+Variables used:
+
+\begin{itemize}
+  \item R - Sunspot Number
+  \item ap - Geomagnetic Activity Index
+  \item f10.7 - Measure of 10.7cm radiation emitted from Sun
+  \item AE - Auroral Geomagnetic Activity Index
+  \item AU - Upper boundary of recorded geomagnetic activity
+  \item PCN - Polar Geomagnetic Activity Index
+  \item Proton flux (energy > 2MeV)
+  \item Proton flux (energy > 10MeV)
+  \item Proton flux (energy > 30MeV)
+\end{itemize}
+\end{large}
+
+\graphicspath{{../plots/07_12/}}
+
+
+\newpage
+
+\begin{figure}
+\centering
+   \includegraphics[width=0.82\textwidth]{mean_kdeplot_1.png}
+   \includegraphics[width=0.82\textwidth]{mean_kdeplot_2.png}
+   \includegraphics[width=0.82\textwidth]{mean_kdeplot_3.png}
+   \caption{Variable Mean Density Plots}
+
+   \includegraphics{mean_heatmap.png}
+   \caption{Variable Mean Correlation Matrix}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\centering
+   \includegraphics[width=0.82\textwidth]{max_kdeplot_1.png}
+   \includegraphics[width=0.82\textwidth]{max_kdeplot_2.png}
+   \includegraphics[width=0.82\textwidth]{max_kdeplot_3.png}
+   \caption{Variable Maximum Density Plots}
+
+   \includegraphics{max_heatmap.png}
+   \caption{Variable Maximum Correlation Matrix}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\centering
+   \includegraphics[width=0.82\textwidth]{delta_kdeplot_1.png}
+   \includegraphics[width=0.82\textwidth]{delta_kdeplot_2.png}
+   \includegraphics[width=0.82\textwidth]{delta_kdeplot_3.png}
+   \caption{Variable Delta Density Plots}
+
+   \includegraphics{delta_heatmap.png}
+   \caption{Variable Delta Correlation Matrix}
+\end{figure}
+
+\newpage
+
+\begin{figure}
+\centering
+   \includegraphics[width=0.82\textwidth]{sd_kdeplot_1.png}
+   \includegraphics[width=0.82\textwidth]{sd_kdeplot_2.png}
+   \includegraphics[width=0.82\textwidth]{sd_kdeplot_3.png}
+   \caption{Variable Std. Dev. Density Plots}
+
+   \includegraphics{sd_heatmap.png}
+   \caption{Variable Std. Dev. Correlation Matrix}
+\end{figure}
+
+
+
+\end{document}
