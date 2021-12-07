@@ -19,7 +19,6 @@ merge_data = pd.read_csv('data/roman-merge.csv')
 #sns.heatmap(corr, cmap="seismic", vmax=1.0, vmin=-1.0, annot=True)
 
 data = merge_data[['mw', 'PFS-MEAN', 'PFS-MAX', 'PFS-DELTA', 'PFS-SD']]
-
 '''
 g = sns.PairGrid(data)
 g.map_upper(sns.histplot)
@@ -41,15 +40,18 @@ for event_val in event_vals:
         # Start with the event property we want
         varnames = [event_val]
         
+        x_vars = []
+        
         for val in calc_vals:
             varname = val + '-' + calc_prop
+            x_vars.append(varname)
             varnames.append(varname)
             
         data_slice = merge_data[varnames]
         
         # Correlation matrix
         corr = data_slice.corr()
-        sns.heatmap(corr, cmap="seismic", vmax=1.0, vmin=-1.0, annot=True)
+        sns.heatmap(corr, cmap="seismic", vmax=1.0, vmin=-1.0, annot=True, annot_kws={"fontsize":8})
         
         # Save plot
         plt.savefig('plots/corr-{}-{}.png'.format(event_val, calc_prop))
@@ -60,19 +62,27 @@ for event_val in event_vals:
         #matplotlib.rc_file_defaults()
         
         # Scatter plot
-        '''
-        g = sns.PairGrid(data_slice)
-        g.map_upper(sns.histplot)
-        g.map_lower(sns.kdeplot, fill=True)
-        g.map_diag(sns.histplot, kde=True)
-        '''
+        g = sns.PairGrid(data_slice, y_vars=event_val, x_vars=x_vars)
+        #g = sns.PairGrid(data_slice, hue=event_val, y_vars=event_val, x_vars=x_vars)
+        #g.add_legend()
         
-        # Seaborn KDE very slow for now
-        pd.plotting.scatter_matrix(data_slice, alpha=0.5)
+        #g.map(sns.kdeplot)
+        g.map(sns.histplot)
         
         # Save plot
-        plt.savefig('plots/scatter-{}-{}.png'.format(event_val, calc_prop))
+        plt.savefig('plots/hist-{}-{}.png'.format(event_val, calc_prop))
         
         # Reset plots
         reset_plots()
-    
+        '''
+        # KDE plot
+        g = sns.PairGrid(data_slice, y_vars=event_val, x_vars=x_vars)
+        
+        g.map(sns.kdeplot)
+        
+        # Save plot
+        plt.savefig('plots/kde-{}-{}.png'.format(event_val, calc_prop))
+        
+        # Reset plots
+        reset_plots()
+        '''
