@@ -50,11 +50,14 @@ for event_val in event_vals:
         data_slice = merge_data[varnames]
         
         # Correlation matrix
+        sns.set(font_scale=0.8)
         corr = data_slice.corr()
-        sns.heatmap(corr, cmap="seismic", vmax=1.0, vmin=-1.0, annot=True, annot_kws={"fontsize":8})
+        ax = sns.heatmap(corr, cmap="seismic", vmax=1.0, vmin=-1.0, annot=True, annot_kws={"fontsize":7})
+        ax.figure.subplots_adjust(left = 0.2)
+        ax.figure.subplots_adjust(bottom = 0.25)
         
         # Save plot
-        plt.savefig('plots/corr-{}-{}.png'.format(event_val, calc_prop))
+        plt.savefig('plots/09_12/corr-{}-{}.png'.format(event_val, calc_prop))
         
         # Reset plots
         reset_plots()
@@ -70,7 +73,7 @@ for event_val in event_vals:
         g.map(sns.histplot)
         
         # Save plot
-        plt.savefig('plots/hist-{}-{}.png'.format(event_val, calc_prop))
+        plt.savefig('plots/09_12/hist-{}-{}.png'.format(event_val, calc_prop))
         
         # Reset plots
         reset_plots()
