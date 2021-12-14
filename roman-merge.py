@@ -18,6 +18,9 @@ if exists('data/omni2.pickle'):
 else:
     print('Generating data')
     from load_omni2_data import omni2
+    omni2.to_pickle('data/omni2.pickle')
+    
+print('Starting merge')
 
 hours_before = 24
 
@@ -80,8 +83,9 @@ for index, row in earthquake.iterrows():
     end_date = dp.parse(date)
     start_date = end_date - datetime.timedelta(hours = hours_before)
     
+    if count_t % 100 == 0:
+        print('Event #{}'.format(count_t))
     count_t += 1
-    print('Event #', count_t)
     
     calc_row = calculate_range(omni2, row, event_vals, calc_vals, calc_props, start_date, end_date)
     rows.append(calc_row)
@@ -94,3 +98,4 @@ for index, row in earthquake.iterrows():
 print('Creating DataFrame')
 out_data = pd.DataFrame(rows)
     
+out_data.to_csv('data/roman-merge.csv')
