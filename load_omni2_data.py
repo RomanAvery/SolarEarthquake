@@ -11,7 +11,10 @@ import pandas as pd
 import numpy as np
 from datetime import datetime
 
-omni2_info = pd.read_table('data/omni2_info.tsv')
+#omni2_info = pd.read_table('data/omni2_info.tsv', float_precision='high')
+
+# Proton flux flag rounding up so not replaced to np.nan, still not fixed
+omni2_info = pd.read_csv('data/omni2_info.tsv', sep='\t', float_precision='high')
 
 columns = {
     "Yr": 1,  # 1, Year
@@ -81,10 +84,10 @@ for pair in columns:
 #Date-time format as input for date_parser parameter
 custom_date_parser = lambda x: datetime.strptime(x, "%Y %j %H")
 
-omni2 = pd.read_table('data/omni2_all_data2.txt', sep='\s+', names=colnames, dtype={"Yr": "object", "DD": "object", "Hr": "object"}, parse_dates={"Date": ["Yr", "DD", "Hr"]}, keep_date_col=True, dayfirst=True, date_parser=custom_date_parser)
+omni2 = pd.read_table('data/omni2_all_years.dat', sep='\s+', names=colnames, dtype={"Yr": "object", "DD": "object", "Hr": "object"}, parse_dates={"Date": ["Yr", "DD", "Hr"]}, keep_date_col=True, dayfirst=True, date_parser=custom_date_parser)
 
 
-columns["Date"]=0
+columns["Date"] = 0
 # Replace bad flags with np.nan
 for column in omni2:
     # Get value to fill

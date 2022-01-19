@@ -4,5 +4,4 @@ data/.DS_Store
 data/omni2.pickle
 data/roman-merge.csv
 data/omni2_full.txt
-data/omni2_all_data2.txt
-data/omni2_all_years.dat.txt
+data/omni2_all_*
