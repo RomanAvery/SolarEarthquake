@@ -5,3 +5,4 @@ data/omni2.pickle
 data/roman-merge.csv
 data/omni2_full.txt
 data/omni2_all_*
+data/*.csv
